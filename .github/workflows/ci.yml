@@ -22,7 +22,18 @@ jobs:
       - name: Run tests inside Docker image
         run: docker run --rm myapp-ci:${{ github.sha }} pytest
 
-# Étape de construction de l'image Docker Stable
+  build_and_push_docker:
+    # Job name that shows in the GitHub UI
+    name: Build Docker Images
+    # Runner to use
+    runs-on: ubuntu-latest
+    needs: build_and_test
+    steps:
+      # Récupèrele contenu du git
+      - name: Checkout
+        uses: actions/checkout@v4
+
+  # Étape de construction de l'image Docker Stable
       - name: Build Docker Stable image
         run: docker build -t dfs-antoine.stagiairesmns.fr:5001/myapp-ci:stable .
       - name: login docker
