@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     # Page d'accueil simple avec instructions
-    return '<h1>Bienvenue !</h1><p>Utilisez le chemin /hello/VOTRE_NOM dans l\'URL.</p>'
+    return '<h1>Bienvenue !</h1><p>Utilisez le  chemin /hello/VOTRE_NOM dans l\'URL.</p>'
 
 @app.route('/hello/<string:name>')
 def hello(name):

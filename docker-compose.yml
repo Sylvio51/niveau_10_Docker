@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  nginx_app_1:
+    image: registry
+    ports:
+      - "8080:80"
+    restart: always
